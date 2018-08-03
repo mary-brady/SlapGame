@@ -1,33 +1,55 @@
 
-let health = 100;
-let hits = 0;
-let name = 'Name Here'
+
+let bopIt = {
+    name: 'Bop It!',
+    health: 100,
+    hits: 0,
+    moods: [
+        'Boppity',
+        'Bopped',
+    ],
+    moodImgs: [
+        "assets/bopit.gif"
+
+    ]
+
+}
+const bopItImg = document.getElementById("bopit-img")
+const health = document.getElementById("health");
+const hits = document.getElementById("hits");
+const bopName = document.getElementById("name");
 
 function update() {
-    if(health < 0) {
-        return
+    if (bopIt.health <= 0) {
+        bopIt.health = 0
+        document.getElementById("kick-button").disabled = true;
+        document.getElementById("slap-button").disabled = true;
+        document.getElementById("punch-button").disabled = true;
     }
-  document.getElementById("health").innerHTML = health;
-  document.getElementById("hits").innerHTML = hits;
-  document.getElementById("name").innerHTML = name;
+    health.innerHTML = bopIt.health;
+    hits.innerHTML = bopIt.hits;
+    name.innerHTML = bopIt.name;
+    bopItImg.setAttribute('src', bopIt.moodImgs[0])
 }
 
 function slap() {
-    health -= 1;
-    hits += 1;
+    bopIt.health -= 1;
+    bopIt.hits += 1;
     update()
 }
 
 function kick() {
-    health -= 10;
-    hits += 1;
+    bopIt.health -= 10;
+    bopIt.hits += 1;
     update()
 }
 
 function punch() {
-    health -= 5;
-    hits += 1;
+    bopIt.health -= 5;
+    bopIt.hits += 1;
     update()
 }
 
 update();
+
+//consider doing a bop it theme - i.e. when its dropped, it takes 20% more health, think about what gives the bop it a shield type thing
