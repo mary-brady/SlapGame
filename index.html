@@ -12,27 +12,46 @@
 </head>
 
 <body>
-    <h1>
-        <span id="name"></span>
-    </h1>
-    <div>
-        <img src="//placehold.it/200x200" alt="slappyslap" id="bopit-img">
-    </div>
-    <div>
-        <h2>
-            Health:
-            <span id="health">_</span>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6">
+                <h1>
+                    <span id="name"></span>
+                </h1>
+                <div>
+                    <img src="//placehold.it/200x200" alt="slappyslap" id="bopit-img">
+                </div>
+                <div>
+                    <h2>
+                        Health:
+                        <span id="health">_</span>
 
-        </h2>
-        <h2>
-            Hits:
-            <span id="hits">_</span>
-        </h2>
-    </div>
-    <div>
-        <button type="button" class="btn btn-dark" onclick="slap()" id="slap-button">Bop It!</button>
-        <button type="button" class="btn btn-warning" onclick="kick()" id="kick-button">Twist It!</button>
-        <button type="button" class="btn btn-info" onclick="punch()" id="punch-button">Pull It!</button>
+                    </h2>
+                    <h2>
+                        Hits:
+                        <span id="hits">_</span>
+                    </h2>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-dark" onclick="slap()" id="slap-button">Bop It!</button>
+                    <button type="button" class="btn btn-warning" onclick="kick()" id="kick-button">Twist It!</button>
+                    <button type="button" class="btn btn-info" onclick="punch()" id="punch-button">Pull It!</button>
+                </div>
+            </div>
+            <div class="class col-xs-6">
+                <div>
+                    <button type="button" class="btn btn-danger">
+                        Miss!
+                    </button>
+                    <button type="button" class="btn btn-secondary">
+                        Boop!
+                    </button>
+                    <button type="button" class="btn btn-success">
+                        Bonus!
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
 

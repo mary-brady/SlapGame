@@ -1,5 +1,3 @@
-
-
 let bopIt = {
     name: 'Bop It!',
     health: 100,
@@ -9,15 +7,32 @@ let bopIt = {
         'Bopped',
     ],
     moodImgs: [
-        "assets/bopit.gif"
-
-    ]
-
+        "assets/bopit.gif",
+    ],
+    items: []
+}
+var bonusItems = {
+    boop: {
+        name: 'boop',
+        modifier: 2,
+        description: 'Softly Booped!',
+    },
+    miss: {
+        name: 'missed',
+        modifier: 5,
+        description: 'Missed it!'
+    },
+    bonus: {
+        name: 'bonus',
+        modifier: 8,
+        description: 'xxtra health'
+    }
 }
 const bopItImg = document.getElementById("bopit-img")
 const health = document.getElementById("health");
 const hits = document.getElementById("hits");
 const bopName = document.getElementById("name");
+
 
 function update() {
     if (bopIt.health <= 0) {
@@ -48,6 +63,16 @@ function punch() {
     bopIt.health -= 5;
     bopIt.hits += 1;
     update()
+}
+
+function giveMiss() {
+    bopIt.items.push(bonusItems[1]);
+}
+function giveBoop() {
+    bopIt.items.push(bonusItems[0]);
+}
+function giveBonus() {
+    bopIt.items.push(bonusItems[2]);
 }
 
 update();
