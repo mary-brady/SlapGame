@@ -51,5 +51,3 @@ function punch() {
 }
 
 update();
-
-//consider doing a bop it theme - i.e. when its dropped, it takes 20% more health, think about what gives the bop it a shield type thing
