@@ -25,7 +25,7 @@ var bonusItems = {
     bonus: {
         name: 'bonus',
         modifier: 8,
-        description: 'xxtra health'
+        description: 'extra health'
     }
 }
 const bopItImg = document.getElementById("bopit-img")
@@ -65,14 +65,14 @@ function punch() {
     update()
 }
 
-function giveMiss() {
-    bopIt.items.push(bonusItems[1]);
-}
 function giveBoop() {
-    bopIt.items.push(bonusItems[0]);
+    bopIt.items.push(bonusItems.boop)
+}
+function giveMiss() {
+    bopIt.items.push(bonusItems.miss);
 }
 function giveBonus() {
-    bopIt.items.push(bonusItems[2]);
+    bopIt.items.push(bonusItems.bonus);
 }
 
 update();
