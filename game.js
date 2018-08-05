@@ -75,4 +75,13 @@ function giveBonus() {
     bopIt.items.push(bonusItems.bonus);
 }
 
+function addMods() {
+    let damage = bonusItems.modifier
+    for (let i = 0; i < bonusItems.length; i++) {
+        const damage = bonusItems[i];
+        bonusItems += damage
+    }
+    return damage
+}
+// this function needs to pull the modifier number from the bonusItems array and add them together
 update();
