@@ -8,6 +8,7 @@ let bopIt = {
     ],
     moodImgs: [
         "assets/bopit.gif",
+        "assets/blam.gif"
     ],
     items: []
 }
@@ -40,11 +41,15 @@ function update() {
         document.getElementById("kick-button").disabled = true;
         document.getElementById("slap-button").disabled = true;
         document.getElementById("punch-button").disabled = true;
+        document.getElementById("boop-button").disabled = true;
+        document.getElementById("miss-button").disabled = true;
     }
     else if (bopIt.health >= 0) {
         document.getElementById("kick-button").disabled = false;
         document.getElementById("slap-button").disabled = false;
         document.getElementById("punch-button").disabled = false;
+        document.getElementById("boop-button").disabled = false;
+        document.getElementById("miss-button").disabled = false;
     }
     health.innerHTML = bopIt.health;
     hits.innerHTML = bopIt.hits;
@@ -53,7 +58,7 @@ function update() {
 }
 
 function bop() {
-    bopIt.health -= 1 + addMods();
+    bopIt.health -= 3 + addMods();
     bopIt.hits += 1;
     update()
 }
