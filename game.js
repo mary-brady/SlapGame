@@ -11,7 +11,7 @@ let bopIt = {
     ],
     items: []
 }
-var bonusItems = {
+let bonusItems = {
     boop: {
         name: 'boop',
         modifier: 2,
@@ -75,13 +75,32 @@ function giveBonus() {
     bopIt.items.push(bonusItems.bonus);
 }
 
+
 function addMods() {
-    let damage = bonusItems.modifier
-    for (let i = 0; i < bonusItems.length; i++) {
-        const damage = bonusItems[i];
-        bonusItems += damage
+    let sumDamage = 0;
+    let boopDam = bonusItems.boop;
+    for (let i = 1; i < boopDam.modifier; i++) {
+        sumDamage += boopDam.modifier;
     }
-    return damage
+    bopIt.items.push(sumDamage)
 }
+addMods()
+
 // this function needs to pull the modifier number from the bonusItems array and add them together
 update();
+
+let boop = {
+    name: 'boop',
+    modifier: 2,
+    description: 'softly booped'
+}
+let miss = {
+    name: 'miss',
+    modifier: 5,
+    description: 'missed'
+}
+let healthPack = {
+    name: 'health pack',
+    modifier: 2,
+    description: 'extra health'
+}
