@@ -21,12 +21,12 @@ let bonusItems = {
         name: 'missed',
         modifier: -5,
         description: 'Missed it!'
-    },
-    bonus: {
-        name: 'bonus',
-        modifier: 0,
-        description: 'extra health'
     }
+    // bonus: {
+    //     name: 'bonus',
+    //     modifier: 0,
+    //     description: 'extra health'
+    // }
 }
 const bopItImg = document.getElementById("bopit-img")
 const health = document.getElementById("health");
@@ -42,7 +42,6 @@ function update() {
         document.getElementById("punch-button").disabled = true;
     }
     else if (bopIt.health >= 0) {
-        // bopIt.health = 0
         document.getElementById("kick-button").disabled = false;
         document.getElementById("slap-button").disabled = false;
         document.getElementById("punch-button").disabled = false;
