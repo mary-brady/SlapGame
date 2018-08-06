@@ -14,17 +14,17 @@ let bopIt = {
 let bonusItems = {
     boop: {
         name: 'boop',
-        modifier: 2,
+        modifier: -2,
         description: 'Softly Booped!',
     },
     miss: {
         name: 'missed',
-        modifier: 5,
+        modifier: -5,
         description: 'Missed it!'
     },
     bonus: {
         name: 'bonus',
-        modifier: 8,
+        modifier: 0,
         description: 'extra health'
     }
 }
@@ -41,26 +41,32 @@ function update() {
         document.getElementById("slap-button").disabled = true;
         document.getElementById("punch-button").disabled = true;
     }
+    else if (bopIt.health >= 0) {
+        // bopIt.health = 0
+        document.getElementById("kick-button").disabled = false;
+        document.getElementById("slap-button").disabled = false;
+        document.getElementById("punch-button").disabled = false;
+    }
     health.innerHTML = bopIt.health;
     hits.innerHTML = bopIt.hits;
     name.innerHTML = bopIt.name;
     bopItImg.setAttribute('src', bopIt.moodImgs[0])
 }
 
-function slap() {
-    bopIt.health -= 1;
+function bop() {
+    bopIt.health -= 1 + addMods();
     bopIt.hits += 1;
     update()
 }
 
-function kick() {
-    bopIt.health -= 10;
+function twist() {
+    bopIt.health -= 10 + addMods();
     bopIt.hits += 1;
     update()
 }
 
-function punch() {
-    bopIt.health -= 5;
+function pull() {
+    bopIt.health -= 5 + addMods();
     bopIt.hits += 1;
     update()
 }
@@ -72,35 +78,20 @@ function giveMiss() {
     bopIt.items.push(bonusItems.miss);
 }
 function giveBonus() {
-    bopIt.items.push(bonusItems.bonus);
+    bopIt.health += 10
+    update()
+    // bopIt.items.push(bonusItems.bonus);
 }
-
 
 function addMods() {
-    let sumDamage = 0;
-    let boopDam = bonusItems.boop;
-    for (let i = 1; i < boopDam.modifier; i++) {
-        sumDamage += boopDam.modifier;
+    let notDamage = 0
+    for (let i = 0; i < bopIt.items.length; i++) {
+        let elem = bopIt.items[i];
+        notDamage += elem.modifier;
     }
-    bopIt.items.push(sumDamage)
+    bopIt.items = []
+    return notDamage
 }
-addMods()
 
-// this function needs to pull the modifier number from the bonusItems array and add them together
 update();
 
-let boop = {
-    name: 'boop',
-    modifier: 2,
-    description: 'softly booped'
-}
-let miss = {
-    name: 'miss',
-    modifier: 5,
-    description: 'missed'
-}
-let healthPack = {
-    name: 'health pack',
-    modifier: 2,
-    description: 'extra health'
-}
